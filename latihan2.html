@@ -5,61 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latihan 2</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div id="result"></div>
+
+    <nav>
+        <ul>
+            <li>
+                <button>
+                    <a href="index.html">Home</a>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
     <div>
         <p>Hasil Latihan 2 - Russell James Ryan 🤪</p>
     </div>
-    <script>
-        jumlahMhs = window.prompt("Jumlah");
-        for (i = 1; i <= jumlahMhs; i++) {
-            nama = window.prompt("Nama");
-            uts = window.prompt("UTS");
-            uas = window.prompt("UAS");
-            tugas = window.prompt("Tugas");
-            final = tugas * 0.3 + uts * 0.3 + uas * 0.4;
-            grade = Grade(final);
 
-            document.write("<br /><br />" + i + ". " + nama + "<br />");
-            document.write("Tugas : " + tugas);
-            document.write("<br />UTS: " + uts);
-            document.write("<br />UAS: " + uas);
-            document.write("<br />Nilai Akhir: " + final)
-            document.write("<br />Grade: " + grade)
+    <script>
+        const resultContainer = document.getElementById("result");
+        const jumlahMhs = parseInt(window.prompt("Jumlah Mahasiswa"), 10);
+
+        if (!isNaN(jumlahMhs) && jumlahMhs > 0) {
+            let outputHTML = "";
+            for (let i = 1; i <= jumlahMhs; i++) {
+                const nama = window.prompt(`Nama Mahasiswa ke-${i}`);
+                const uts = parseFloat(window.prompt(`Nilai UTS ${nama}`)) || 0;
+                const uas = parseFloat(window.prompt(`Nilai UAS ${nama}`)) || 0;
+                const tugas = parseFloat(window.prompt(`Nilai Tugas ${nama}`)) || 0;
+
+                const final = (tugas * 0.3) + (uts * 0.3) + (uas * 0.4);
+                const grade = getGrade(final);
+                outputHTML += `
+                    <div class="student-card">
+                        <strong>${i}. ${nama}</strong><br>
+                        Tugas: ${tugas}<br>
+                        UTS: ${uts}<br>
+                        UAS: ${uas}<br>
+                        Nilai Akhir: ${final.toFixed(2)}<br>
+                        Grade: ${grade}
+                    </div>
+                `;
+            }
+
+            resultContainer.innerHTML = outputHTML;
+        } else {
+            resultContainer.innerHTML = "<div>Input jumlah mahasiswa tidak valid.</div>";
         }
 
-        function Grade(final) {
-            if (final >= 85) {
-                return "A";
-            }
-            else if (final >= 80 && final < 85) {
-                return "A-";
-            }
-            else if (final >= 80 && final < 85) {
-                return "B+";
-            }
-            else if (final >= 75 && final < 80) {
-                return "B";
-            }
-            else if (final >= 70 && final < 85) {
-                return "B-";
-            }
-            else if (final >= 65 && final < 70) {
-                return "C+";
-            }
-            else if (final >= 60 && final < 65) {
-                return "C";
-            }
-            else if (final >= 55 && final < 60) {
-                return "D";
-            }
-            else if (final >= 45 && final < 55) {
-                return "E";
-            }
-            else if (final == "Violation") {
-                return "F";
-            }
+        function getGrade(final) {
+            if (final >= 85) return "A";
+            if (final >= 80) return "A-";
+            if (final >= 75) return "B+";
+            if (final >= 70) return "B";
+            if (final >= 65) return "B-";
+            if (final >= 60) return "C+";
+            if (final >= 55) return "C";
+            if (final >= 45) return "D";
+            return "E";
         }
     </script>
 </body>

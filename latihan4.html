@@ -2,34 +2,53 @@
 <html lang="en">
 
 <head>
-    <div>
-        <p>Hasil Latihan 4 - Russell James Ryan 🤪.</p>
-    </div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width    =device-width, initial-scale=1.0">
     <title>Latihan 4</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
-<script>
-
-    const jenis = prompt("Luas atau Keliling?");
-    const lebar = parseInt(prompt("Lebar (meter)"))
-    const panjang = parseInt(prompt("Panjang (meter)"));
-    if (jenis == "luas" || jenis == "Luas" || jenis == "l") {
-        luas(panjang, lebar)
-    }
-    else {
-        kelling(panjang, lebar)
-    }
-
-    function luas(a, b) {
-        document.write("<br>Hasil Luas: " + a * b + " meter");
-    }
-    function kelling(a, b) {
-        document.write("<br>Hasil Kelling: " + (2 * (a + b)) + " meter");
-    }
-</script>
 
 <body>
+    <div id="result"></div>
+
+    <nav>
+        <ul>
+            <li>
+                <button>
+                    <a href="index.html">Home</a>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <p>Hasil Latihan 4 - Russell James Ryan 🤪.</p>
+    </div>
+    <script>
+        const resultContainer = document.getElementById("result");
+        const jenis = prompt("Luas atau Keliling?");
+
+        const lebar = parseInt(prompt("Lebar (meter)"))
+        const panjang = parseInt(prompt("Panjang (meter)"));
+        if (jenis == "luas" || jenis == "Luas" || jenis == "l") {
+            luas(panjang, lebar)
+        }
+        else if (jenis == "keliling" || jenis == "Keliling" || jenis == "k") {
+            kelling(panjang, lebar)
+        }
+        else {
+            resultContainer.innerHTML = "<br>Invalid Input.";
+        }
+
+        function luas(a, b) {
+            resultContainer.innerHTML = "<br>Hasil Luas: " + a * b + " meter";
+        }
+        function kelling(a, b) {
+            resultContainer.innerHTML = "<br>Hasil Kelling: " + (2 * (a + b)) + " meter";
+        }
+    </script>
+
+
 
 </body>
 

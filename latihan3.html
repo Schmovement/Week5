@@ -5,37 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latihan 3</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
+    <div id="result"></div>
+    <nav>
+        <ul>
+            <li>
+                <button>
+                    <a href="index.html">Home</a>
+                </button>
+            </li>
+        </ul>
+    </nav>
     <div>
         <p>Hasil Latihan 3 - Russell James Ryan 🤪 <br>
-            Jujur ini agak explore dikit. Botak Sariawan Cuy.
+            Jujur ini agak explore dikit. Botak Sariawan.
         </p>
     </div>
     <script>
         const input = window.prompt("Enter time (e.g., 10, 10:30, 15:45):");
 
         if (input === null || input.trim() === "") {
-            document.write("Tidak ada input.");
+            OutputHTML = "Tidak ada input.";
         } else {
+            const resultContainer = document.getElementById("result");
             const hourString = input.split(":")[0];
             const hour = parseInt(hourString, 10);
+            let OutputHTML = "";
 
-            if (isNaN(hour) || hour < 0 || hour > 23) {
-                document.write("Mohon input jam antara 0 dan 23.");
+            if (isNaN(hour) || hour < 0 || hour > 23 || input.split(":")[1] > 59 || input.split(":")[2] > 59 || input.split(":")[3]) {
+                OutputHTML = "Mohon input jam yang valid antara 0 dan 23.";
             } else if (hour >= 6 && hour < 11) {
-                document.write("Selamat Pagi");
+                OutputHTML = "Selamat Pagi";
             } else if (hour >= 11 && hour < 15) {
-                document.write("Selamat Siang");
+                OutputHTML = "Selamat Siang";
             } else if (hour >= 15 && hour < 18) {
-                document.write("Selamat Sore");
+                OutputHTML = "Selamat Sore";
             } else if (hour >= 18 && hour < 23) {
-                document.write("Selamat Malam");
+                OutputHTML = "Selamat Malam";
             }
             else {
-                document.write("Selamat Tidur");
+                OutputHTML = "Selamat Tidur";
             }
+            resultContainer.innerHTML = OutputHTML;
         }
     </script>
 </body>
