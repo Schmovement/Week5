@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 2</title>
+</head>
+
+<body>
+    <div>
+        <p>Hasil Latihan 2 - Russell James Ryan 🤪</p>
+    </div>
+    <script>
+        jumlahMhs = window.prompt("Jumlah");
+        for (i = 1; i <= jumlahMhs; i++) {
+            nama = window.prompt("Nama");
+            uts = window.prompt("UTS");
+            uas = window.prompt("UAS");
+            tugas = window.prompt("Tugas");
+            final = tugas * 0.3 + uts * 0.3 + uas * 0.4;
+            grade = Grade(final);
+
+            document.write("<br /><br />" + i + ". " + nama + "<br />");
+            document.write("Tugas : " + tugas);
+            document.write("<br />UTS: " + uts);
+            document.write("<br />UAS: " + uas);
+            document.write("<br />Nilai Akhir: " + final)
+            document.write("<br />Grade: " + grade)
+        }
+
+        function Grade(final) {
+            if (final >= 85) {
+                return "A";
+            }
+            else if (final >= 80 && final < 85) {
+                return "A-";
+            }
+            else if (final >= 80 && final < 85) {
+                return "B+";
+            }
+            else if (final >= 75 && final < 80) {
+                return "B";
+            }
+            else if (final >= 70 && final < 85) {
+                return "B-";
+            }
+            else if (final >= 65 && final < 70) {
+                return "C+";
+            }
+            else if (final >= 60 && final < 65) {
+                return "C";
+            }
+            else if (final >= 55 && final < 60) {
+                return "D";
+            }
+            else if (final >= 45 && final < 55) {
+                return "E";
+            }
+            else if (final == "Violation") {
+                return "F";
+            }
+        }
+    </script>
+</body>
+
+</html>

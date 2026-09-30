@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <div>
+        <p>Hasil Latihan 4 - Russell James Ryan 🤪.</p>
+    </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width    =device-width, initial-scale=1.0">
+    <title>Latihan 4</title>
+</head>
+<script>
+
+    const jenis = prompt("Luas atau Keliling?");
+    const lebar = parseInt(prompt("Lebar (meter)"))
+    const panjang = parseInt(prompt("Panjang (meter)"));
+    if (jenis == "luas" || jenis == "Luas" || jenis == "l") {
+        luas(panjang, lebar)
+    }
+    else {
+        kelling(panjang, lebar)
+    }
+
+    function luas(a, b) {
+        document.write("<br>Hasil Luas: " + a * b + " meter");
+    }
+    function kelling(a, b) {
+        document.write("<br>Hasil Kelling: " + (2 * (a + b)) + " meter");
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>

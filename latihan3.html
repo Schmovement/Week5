@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 3</title>
+</head>
+
+<body>
+    <div>
+        <p>Hasil Latihan 3 - Russell James Ryan 🤪 <br>
+            Jujur ini agak explore dikit. Botak Sariawan Cuy.
+        </p>
+    </div>
+    <script>
+        const input = window.prompt("Enter time (e.g., 10, 10:30, 15:45):");
+
+        if (input === null || input.trim() === "") {
+            document.write("Tidak ada input.");
+        } else {
+            const hourString = input.split(":")[0];
+            const hour = parseInt(hourString, 10);
+
+            if (isNaN(hour) || hour < 0 || hour > 23) {
+                document.write("Mohon input jam antara 0 dan 23.");
+            } else if (hour >= 6 && hour < 11) {
+                document.write("Selamat Pagi");
+            } else if (hour >= 11 && hour < 15) {
+                document.write("Selamat Siang");
+            } else if (hour >= 15 && hour < 18) {
+                document.write("Selamat Sore");
+            } else if (hour >= 18 && hour < 23) {
+                document.write("Selamat Malam");
+            }
+            else {
+                document.write("Selamat Tidur");
+            }
+        }
+    </script>
+</body>
+
+</html>
