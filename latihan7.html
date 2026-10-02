@@ -10,8 +10,10 @@
 </head>
 
 <body>
-    <div id="result"></div>
-
+    <div>
+        <p>Hasil Latihan 7 - Russell James Ryan 🤪. </p>
+    </div>
+    <div id="result7"></div>
     <nav>
         <ul>
             <li>
@@ -21,36 +23,41 @@
             </li>
         </ul>
     </nav>
-    <div>
-        <p>Hasil Latihan 7 - Russell James Ryan 🤪. </p>
-    </div>
     <script>
-        senin = prompt("Jumlah mahasiswa yang masuk");
-        selasa = prompt("Jumlah mahasiswa yang masuk");
-        rabu = prompt("Jumlah mahasiswa yang masuk");
-        kamis = prompt("Jumlah mahasiswa yang masuk");
-        jumat = prompt("Jumlah mahasiswa yang masuk");
-        document.write("<br> <b>Grafik Jumlah Kehadiran Mahasiswa</b>");
-        document.write("<br>Senin: ");
-        for(let i = 0; i < senin; i++){
-            document.write("X");
+        const senin = prompt("Jumlah mahasiswa yang masuk");
+        const selasa = prompt("Jumlah mahasiswa yang masuk");
+        const rabu = prompt("Jumlah mahasiswa yang masuk");
+        const kamis = prompt("Jumlah mahasiswa yang masuk");
+        const jumat = prompt("Jumlah mahasiswa yang masuk");
+        resultContainer = document.getElementById("result7");
+        let outputHTML = "";
+        outputHTML += `
+        <b>Grafik Jumlah Kehadiran Mahasiswa</b>
+        <br><b>Senin : </b>`;
+        for (let i = 0; i < senin; i++) {
+            outputHTML += "X";
         }
-        document.write("<br>Selasa: ");
-        for(let i = 0; i < selasa; i++){
-            document.write("X");
+
+        outputHTML += `<br><br><b>Selasa : </b>`;
+        for (let i = 0; i < selasa; i++) {
+            outputHTML += "X";
         }
-        document.write("<br>Rabu: ");
-        for(let i = 0; i < rabu; i++){
-            document.write("X");
+
+        outputHTML += `<br><br><b>Rabu : </b>`;
+        for (let i = 0; i < rabu; i++) {
+            outputHTML += "X";
         }
-        document.write("<br>Kamis: ");
-        for(let i = 0; i < kamis; i++){
-            document.write("X");
+
+        outputHTML += `<br><br><b>Kamis : </b>`;
+        for (let i = 0; i < kamis; i++) {
+            outputHTML += "X";
         }
-        document.write("<br>Jumat: ");
-        for(let i = 0; i < jumat; i++){
-            document.write("X");
+
+        outputHTML += `<br><br><b>Jumat : </b>`;
+        for (let i = 0; i < jumat; i++) {
+            outputHTML += "X";
         }
+        resultContainer.innerHTML = outputHTML;
     </script>
 </body>
 

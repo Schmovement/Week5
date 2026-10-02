@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <div id="result">
+
+    </div>
     <nav>
         <ul>
             <li>
@@ -19,19 +22,24 @@
         </ul>
     </nav>
     <script>
-        jumlahMhs = window.prompt("Jumlah");
+        const resultContainer = document.getElementById("result");
+        let outputHTML = "";
+        const jumlahMhs = window.prompt("Jumlah");
         for (i = 1; i <= jumlahMhs; i++) {
-            console.log("test");    
             nama = window.prompt("Nama");
             uts = window.prompt("UTS");
             uas = window.prompt("UAS");
             tugas = window.prompt("Tugas");
-
-            document.write("<br /><br />" + i + ". " + nama + "<br />");
-            document.write("Tugas : " + tugas);
-            document.write("<br />UTS: " + uts);
-            document.write("<br />UAS: " + uas);
+            outputHTML += `
+            <div class="student-card">
+                ${i}. ${nama} <br>
+                Tugas: ${tugas} <br>
+                UTS: ${uts} <br>
+                UAS: ${uas}
+            </div>
+            `;
         }
+        resultContainer.innerHTML = outputHTML;
 
     </script>
 </body>
